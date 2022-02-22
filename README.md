@@ -4,6 +4,7 @@ Timer facilities for Tokio
 
 > **Note:** This crate is **deprecated in tokio 0.2.x** and has been moved into
 > [`tokio::time`] behind the `time` [feature flag].
+> This repo only aims to fix a critical bug of tokio-timer, there will be no future updates.
 
 [`tokio::time`]: https://docs.rs/tokio/latest/tokio/time/index.html
 [feature flag]: https://docs.rs/tokio/latest/tokio/index.html#feature-flags

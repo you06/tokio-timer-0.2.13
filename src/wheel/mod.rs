@@ -26,6 +26,9 @@ pub(crate) struct Wheel<T> {
 
     /// Timer wheel.
     ///
+    /// Hotfix: some application may keep running over 2 years, to avoid such application panic,
+    /// the level vector's which should provide slots for longer duration.
+    ///
     /// Levels:
     ///
     /// * 1 ms slots / 64 ms range
@@ -34,13 +37,15 @@ pub(crate) struct Wheel<T> {
     /// * ~ 4 min slots / ~ 4 hr range
     /// * ~ 4 hr slots / ~ 12 day range
     /// * ~ 12 day slots / ~ 2 yr range
+    /// * ~ 2 yr slots / ~ 139 yr range
     levels: Vec<Level<T>>,
 }
 
 /// Number of levels. Each level has 64 slots. By using 6 levels with 64 slots
 /// each, the timer is able to track time up to 2 years into the future with a
 /// precision of 1 millisecond.
-const NUM_LEVELS: usize = 6;
+/// Hotfix: add one more level to support longer duration.
+const NUM_LEVELS: usize = 7;
 
 /// The maximum duration of a delay
 const MAX_DURATION: u64 = 1 << (6 * NUM_LEVELS);
@@ -273,7 +278,7 @@ mod test {
             );
         }
 
-        for level in 1..5 {
+        for level in 1..6 {
             for pos in level..64 {
                 let a = pos * 64_usize.pow(level as u32);
                 assert_eq!(

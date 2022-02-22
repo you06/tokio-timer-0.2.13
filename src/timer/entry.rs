@@ -205,7 +205,7 @@ impl Entry {
     /// The current entry state as known by the timer. This is not the value of
     /// `state`, but lets the timer know how to converge its state to `state`.
     pub fn when_internal(&self) -> Option<u64> {
-        unsafe { (*self.when.get()) }
+        unsafe { *self.when.get() }
     }
 
     pub fn set_when_internal(&self, when: Option<u64>) {

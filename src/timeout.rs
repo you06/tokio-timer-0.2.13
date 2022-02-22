@@ -290,6 +290,7 @@ impl<T: error::Error> error::Error for Error<T> {
     fn description(&self) -> &str {
         use self::Kind::*;
 
+        #[allow(deprecated)]
         match self.0 {
             Inner(ref e) => e.description(),
             Elapsed => "deadline has elapsed",

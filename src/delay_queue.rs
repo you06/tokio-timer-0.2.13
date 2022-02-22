@@ -161,9 +161,11 @@ pub struct Expired<T> {
     data: T,
 
     /// The expiration time
+    #[allow(unused)]
     deadline: Instant,
 
     /// The key associated with the entry
+    #[allow(unused)]
     key: Key,
 }
 

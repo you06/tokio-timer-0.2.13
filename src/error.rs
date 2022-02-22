@@ -70,6 +70,7 @@ impl error::Error for Error {
     }
 }
 
+#[allow(deprecated)]
 impl fmt::Display for Error {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
         use std::error::Error;

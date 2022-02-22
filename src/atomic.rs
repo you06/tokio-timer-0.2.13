@@ -34,6 +34,7 @@ mod imp {
             self.inner.fetch_or(val as usize, ordering) as u64
         }
 
+        #[allow(deprecated)]
         pub fn compare_and_swap(&self, old: u64, new: u64, ordering: Ordering) -> u64 {
             self.inner
                 .compare_and_swap(old as usize, new as usize, ordering) as u64
