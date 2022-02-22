@@ -335,11 +335,11 @@ fn very_long_delay() {
 
 #[test]
 fn greater_than_max() {
-    const YR_5: u64 = 5 * 365 * 24 * 60 * 60 * 1000;
+    const YR_140: u64 = 140 * 365 * 24 * 60 * 60 * 1000;
 
     mocked(|timer, time| {
         // Create a `Delay` that elapses in the future
-        let mut delay = Delay::new(time.now() + ms(YR_5));
+        let mut delay = Delay::new(time.now() + ms(YR_140));
 
         assert_not_ready!(delay);
 
