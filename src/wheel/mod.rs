@@ -27,7 +27,7 @@ pub(crate) struct Wheel<T> {
     /// Timer wheel.
     ///
     /// Hotfix: some application may keep running over 2 years, to avoid such application panic,
-    /// the level vector's which should provide slots for longer duration.
+    /// the level vector should provide slots for longer duration.
     ///
     /// Levels:
     ///
